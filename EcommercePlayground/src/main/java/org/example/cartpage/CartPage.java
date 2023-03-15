@@ -55,7 +55,7 @@ public class CartPage extends BaseEShopPage {
             elements().regionOption().click();
         }
 
-        elements().postCodeSatateShippingTaxes().typeText(postCode);
+        elements().postCodeStateShippingTaxes().typeText(postCode);
     }
 
     public List<Double> getPrices() {

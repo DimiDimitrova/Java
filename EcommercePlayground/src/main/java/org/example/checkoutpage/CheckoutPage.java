@@ -163,7 +163,7 @@ public class CheckoutPage extends BaseEShopPage {
     }
 
     public void updateProductQuantity(int newQuantity, Item product) {
-        elements().quentityField(product).typeText(String.valueOf(newQuantity));
+        elements().quantityField(product).typeText(String.valueOf(newQuantity));
         driver.waitUntilPageLoadsCompletely();
     }
 

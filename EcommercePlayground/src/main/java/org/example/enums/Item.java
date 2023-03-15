@@ -1,7 +1,6 @@
 package org.example.enums;
 
 public enum Item {
-
     IPOD_TOUCH("iPod Touch", 32),
     IPOD_SHUFFLE("iPod Shuffle", 34),
     IPOD_NANO("iPod Nano", 36),

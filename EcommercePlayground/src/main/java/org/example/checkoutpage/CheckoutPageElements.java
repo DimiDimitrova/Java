@@ -196,7 +196,7 @@ public class CheckoutPageElements {
         return driver.findElement(By.xpath(locator));
     }
 
-    public Element quentityField(Item product) {
+    public Element quantityField(Item product) {
         String locator = String.format(
             "//div[@id='checkout-cart']//td/a[text()='%s']//following::td[@class='text-left']//input",
             product.toString());

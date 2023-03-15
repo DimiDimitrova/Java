@@ -61,30 +61,30 @@ public class CheckoutPageAssertions {
         }
 
         for (int i = 0; i < actualProductsInfo.size(); i++) {
-            Assertions.assertEquals(actualProductsInfo.get(i).productName, expectedProductInfo.get(i).title,
-                String.format(ApplicationMessages.NOT_EXISTS_IN_PAGE_ERROR, expectedProductInfo.get(i).title));
+            Assertions.assertEquals(actualProductsInfo.get(i).getProductName(), expectedProductInfo.get(i).getTitle(),
+                String.format(ApplicationMessages.NOT_EXISTS_IN_PAGE_ERROR, expectedProductInfo.get(i).getTitle()));
 
-            Assertions.assertEquals(actualProductsInfo.get(i).image, expectedProductInfo.get(i).image,
-                String.format(ApplicationMessages.NOT_EXISTS_IN_PAGE_ERROR, expectedProductInfo.get(i).image));
+            Assertions.assertEquals(actualProductsInfo.get(i).getImage(), expectedProductInfo.get(i).getImage(),
+                String.format(ApplicationMessages.NOT_EXISTS_IN_PAGE_ERROR, expectedProductInfo.get(i).getImage()));
 
-            Assertions.assertEquals(actualProductsInfo.get(i).unitPrice, expectedProductInfo.get(i).unitPrice,
-                String.format(ApplicationMessages.NOT_EXISTS_IN_PAGE_ERROR, expectedProductInfo.get(i).unitPrice));
+            Assertions.assertEquals(actualProductsInfo.get(i).getUnitPrice(), expectedProductInfo.get(i).getUnitPrice(),
+                String.format(ApplicationMessages.NOT_EXISTS_IN_PAGE_ERROR, expectedProductInfo.get(i).getUnitPrice()));
 
-            Assertions.assertEquals(actualProductsInfo.get(i).model, expectedProductInfo.get(i).model,
-                String.format(ApplicationMessages.NOT_EXISTS_IN_PAGE_ERROR, expectedProductInfo.get(i).model));
+            Assertions.assertEquals(actualProductsInfo.get(i).getModel(), expectedProductInfo.get(i).getModel(),
+                String.format(ApplicationMessages.NOT_EXISTS_IN_PAGE_ERROR, expectedProductInfo.get(i).getModel()));
 
-            Assertions.assertEquals(actualProductsInfo.get(i).total,
-                expectedProductInfo.get(i).unitPrice * actualProductsInfo.get(i).quantity,
+            Assertions.assertEquals(actualProductsInfo.get(i).getTotal(),
+                expectedProductInfo.get(i).getUnitPrice() * actualProductsInfo.get(i).getQuantity(),
                 String.format(ApplicationMessages.NOT_EXISTS_IN_PAGE_ERROR,
-                    expectedProductInfo.get(i).unitPrice * actualProductsInfo.get(i).quantity));
+                    expectedProductInfo.get(i).getUnitPrice() * actualProductsInfo.get(i).getQuantity()));
         }
     }
 
     public void assertQuantityAndTotalAreCorrect(int expectedQty, Item product) {
-        Assertions.assertTrue(checkoutPageElements().quentityField(product).getAttribute("value").
+        Assertions.assertTrue(checkoutPageElements().quantityField(product).getAttribute("value").
                 equals(String.valueOf(expectedQty)),
             String.format(ApplicationMessages.QTY_ERROR,
-                checkoutPageElements().quentityField(product).getText(), String.valueOf(expectedQty)));
+                checkoutPageElements().quantityField(product).getText(), String.valueOf(expectedQty)));
 
         var unitPriceBeforeUpdate = PriceConvertingExtensions.getAmount(checkoutPageElements().unitPrice(product).getText());
         var unitPrice = unitPriceBeforeUpdate * expectedQty;

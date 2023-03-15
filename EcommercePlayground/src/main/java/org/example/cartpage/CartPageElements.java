@@ -52,7 +52,7 @@ public class CartPageElements {
         return driver.findElement(By.id("input-zone"));
     }
 
-    public Element postCodeSatateShippingTaxes() {
+    public Element postCodeStateShippingTaxes() {
         return driver.findElement(By.id("input-postcode"));
     }
 

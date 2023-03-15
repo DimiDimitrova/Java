@@ -34,11 +34,8 @@ public class SearchTest extends BaseTest {
 
         searchPage.assertions().assertBySearchedManufacturer(brand);
     }
-
-   // @ParameterizedTest
-   // @EnumSource(Categories.class)
     @Test
-    public void searchWithTopCategoryFilter(/*Categories category*/) {
+    public void searchWithTopCategoryFilter() {
         homePage.searchByTopCategory(Categories.WASHING_MACHINE);
 
         megaMenuSection.assertions().assertThatCategoryPresentInThePage(Categories.WASHING_MACHINE);

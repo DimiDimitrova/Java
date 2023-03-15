@@ -155,30 +155,30 @@ public class Generator {
 
 
     public RecipientInfo createRecipient() {
-        var recepient = new RecipientInfo();
-        recepient.setRecipientName(faker.name().firstName());
-        recepient.setRecipientEmail(faker.bothify("?????????@gmail.com"));
-        recepient.setRecipientPassword(faker.lorem().characters(32));
+        var recipient = new RecipientInfo();
+        recipient.setRecipientName(faker.name().firstName());
+        recipient.setRecipientEmail(faker.bothify("?????????@gmail.com"));
+        recipient.setRecipientPassword(faker.lorem().characters(32));
 
-        return recepient;
+        return recipient;
     }
 
     public RecipientInfo createRecipientWithSpecificName(int nameSize) {
-        var recepient = new RecipientInfo();
-        recepient.setRecipientName(faker.lorem().characters(nameSize));
-        recepient.setRecipientEmail(faker.bothify("?????????@gmail.com"));
-        recepient.setRecipientPassword(faker.lorem().characters(32));
+        var recipient = new RecipientInfo();
+        recipient.setRecipientName(faker.lorem().characters(nameSize));
+        recipient.setRecipientEmail(faker.bothify("?????????@gmail.com"));
+        recipient.setRecipientPassword(faker.lorem().characters(32));
 
-        return recepient;
+        return recipient;
     }
 
     public RecipientInfo createRecipientWithSpecificEmail(String email) {
-        var recepient = new RecipientInfo();
-        recepient.setRecipientName(faker.name().firstName());
-        recepient.setRecipientEmail(email);
-        recepient.setRecipientPassword(faker.lorem().characters(32));
+        var recipient = new RecipientInfo();
+        recipient.setRecipientName(faker.name().firstName());
+        recipient.setRecipientEmail(email);
+        recipient.setRecipientPassword(faker.lorem().characters(32));
 
-        return recepient;
+        return recipient;
     }
 
     public String createText() {

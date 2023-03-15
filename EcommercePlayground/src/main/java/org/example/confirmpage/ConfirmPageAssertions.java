@@ -39,10 +39,10 @@ public class ConfirmPageAssertions {
 
     public void assertPaymentInfo(PaymentAddressInfo address) {
         String[] content = confirmPageElements().paymentTable().getText().split("\r\n");
-        var regionCountry = String.format("%s,%s", address.region, address.country);
-        var postCodeCity = String.format("%s %s", address.city, address.postCode);
+        var regionCountry = String.format("%s,%s", address.getRegion(), address.getCountry());
+        var postCodeCity = String.format("%s %s", address.getCity(), address.getPostCode());
 
-        Assertions.assertEquals(address.address, content[1],
+        Assertions.assertEquals(address.getAddress(), content[1],
             String.format(ApplicationMessages.PAYMENT_ERROR, address.address));
 
         Assertions.assertEquals(postCodeCity, content[2]);
@@ -58,20 +58,20 @@ public class ConfirmPageAssertions {
         }
 
         for (int i = 0; i < actualProductsInfo.size(); i++) {
-            Assertions.assertEquals(actualProductsInfo.get(i).productName, expectedProductInfo.get(i).title,
-                String.format(ApplicationMessages.NOT_EXISTS_IN_PAGE_ERROR, expectedProductInfo.get(i).title));
+            Assertions.assertEquals(actualProductsInfo.get(i).getProductName(), expectedProductInfo.get(i).getTitle(),
+                String.format(ApplicationMessages.NOT_EXISTS_IN_PAGE_ERROR, expectedProductInfo.get(i).getTitle()));
 
 
-            Assertions.assertEquals(actualProductsInfo.get(i).unitPrice, expectedProductInfo.get(i).unitPrice,
-                String.format(ApplicationMessages.NOT_EXISTS_IN_PAGE_ERROR, expectedProductInfo.get(i).unitPrice));
+            Assertions.assertEquals(actualProductsInfo.get(i).getUnitPrice(), expectedProductInfo.get(i).getUnitPrice(),
+                String.format(ApplicationMessages.NOT_EXISTS_IN_PAGE_ERROR, expectedProductInfo.get(i).getUnitPrice()));
 
-            Assertions.assertEquals(actualProductsInfo.get(i).model, expectedProductInfo.get(i).model,
-                String.format(ApplicationMessages.NOT_EXISTS_IN_PAGE_ERROR, expectedProductInfo.get(i).model));
+            Assertions.assertEquals(actualProductsInfo.get(i).getModel(), expectedProductInfo.get(i).getModel(),
+                String.format(ApplicationMessages.NOT_EXISTS_IN_PAGE_ERROR, expectedProductInfo.get(i).getModel()));
 
-            Assertions.assertEquals(actualProductsInfo.get(i).total,
-                expectedProductInfo.get(i).unitPrice * actualProductsInfo.get(i).quantity,
+            Assertions.assertEquals(actualProductsInfo.get(i).getTotal(),
+                expectedProductInfo.get(i).getUnitPrice() * actualProductsInfo.get(i).getQuantity(),
                 String.format(ApplicationMessages.NOT_EXISTS_IN_PAGE_ERROR,
-                    expectedProductInfo.get(i).unitPrice * actualProductsInfo.get(i).quantity));
+                    expectedProductInfo.get(i).getUnitPrice() * actualProductsInfo.get(i).getQuantity()));
         }
     }
 

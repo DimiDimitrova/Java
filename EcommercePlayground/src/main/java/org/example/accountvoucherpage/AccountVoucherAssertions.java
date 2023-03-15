@@ -31,15 +31,6 @@ public class AccountVoucherAssertions {
             String.format(ApplicationMessages.RECIPIENT_NAME_ERROR, RECIPIENT_NAME_MIN_SIZE, RECIPIENT_NAME_MAX_SIZE));
     }
 
-    public void assertPurchaseVoucherFailedWithIncorrectRecipientName(String name) {
-        Assertions.assertEquals("Gift Certificate", breadcrumbSection().elements().activePageTitle().getText(),
-            String.format(ApplicationMessages.PURCHASE_GIFT_MESSAGE, name.length()) + " " +
-                String.format(ApplicationMessages.RECIPIENT_NAME_ERROR, RECIPIENT_NAME_MIN_SIZE, RECIPIENT_NAME_MAX_SIZE));
-
-        Assertions.assertEquals(accountVoucherElements().errorMessage().getText(),
-            String.format(ApplicationMessages.RECIPIENT_NAME_ERROR, RECIPIENT_NAME_MIN_SIZE, RECIPIENT_NAME_MAX_SIZE));
-    }
-
     public void assertPurchaseVoucherFailedWithInvalidEmail(String email) {
         Assertions.assertEquals(ApplicationMessages.EMAIL_ERROR, accountVoucherElements().errorMessage().getText(),
             String.format(ApplicationMessages.PURCHASE_GIFT_MESSAGE, email.length()));
